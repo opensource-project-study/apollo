@@ -63,6 +63,18 @@ public class SimpleApolloConfigDemo {
   }
 
   public static void main(String[] args) throws IOException {
+
+      // set AppId
+      // refer to https://www.apolloconfig.com/#/zh/usage/java-sdk-user-guide
+      System.setProperty("app.id", "apollo-demo1");
+      // set Apollo Meta Server
+      // 跳过Apollo Meta Server服务发现
+      // refer to https://www.apolloconfig.com/#/zh/usage/java-sdk-user-guide?id=_1222-%e8%b7%b3%e8%bf%87apollo-meta-server%e6%9c%8d%e5%8a%a1%e5%8f%91%e7%8e%b0
+      System.setProperty("apollo.config-service", "http://192.168.3.129:18080");
+      // set Environment
+      // refer to https://www.apolloconfig.com/#/zh/usage/java-sdk-user-guide?id=_1241-environment
+//      System.setProperty("env", "DEV");
+
     SimpleApolloConfigDemo apolloConfigDemo = new SimpleApolloConfigDemo();
     System.out.println(
         "Apollo Config Demo. Please input key to get the value. Input quit to exit.");

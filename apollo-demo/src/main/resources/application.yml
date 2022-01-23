@@ -19,4 +19,6 @@ apollo:
     eagerLoad:
       enabled: true
     # will inject 'application' and 'TEST1.apollo' namespaces in bootstrap phase
-    namespaces: application,TEST1.apollo,application.yaml
+    namespaces: application,TEST1.apollo,application.yaml,redis.test1
+  # 使用spring boot集成的方式，必须配置apollo.config-service，以跳过apollo.meta的配置
+  config-service: http://192.168.3.129:18080

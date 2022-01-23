@@ -26,4 +26,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableApolloConfig(value = "application", order = 10)
 public class AppConfig {
+
+    static {
+        // 跳过Apollo Meta Server服务发现
+        // 参考：https://www.apolloconfig.com/#/zh/usage/java-sdk-user-guide?id=_1222-%e8%b7%b3%e8%bf%87apollo-meta-server%e6%9c%8d%e5%8a%a1%e5%8f%91%e7%8e%b0
+        // Config Service部署在docker环境中，注册到Meta Server的是docker内网地址，本地开发环境无法直接连接，所以需要跳过Apollo Meta Server服务发现
+        ///
+        System.setProperty("apollo.config-service", "http://192.168.3.129:18080");
+//        System.setProperty("apollo.config-service", "http://192.168.3.129:18080,http://192.168.3.129:18081,http://192.168.3.129:18082");
+    }
 }
